@@ -1,0 +1,8 @@
+{
+  "name": "ControlAC",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

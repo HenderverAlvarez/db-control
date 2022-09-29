@@ -1,0 +1,115 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.w-100{
+    width: 100%!important;
+}
+.w-80{
+    width: 80%!important;
+}
+.w-50{
+    width: 50%!important;
+}
+.w-40{
+    width: 40%!important;
+}
+.w-30{
+    width: 30%!important;
+}
+.w-25{
+    width: 25%!important;
+}
+
+.d-flex{
+    display: flex!important;
+}
+
+.text-white{
+    color: #fff!important;
+}
+.text-center{
+    text-align: center!important;
+}
+.text-tittle{
+    font-size: 22px!important;
+    color: #A7FFE4!important;
+    font-weight: 800!important;
+}
+.tab-text{
+    color: #A7FFE4!important;
+}
+.p-4{
+    padding: 4rem!important;
+}
+.p-3{
+    padding: 3rem!important;
+}
+.p-2{
+    padding: 2rem!important;
+}
+.p-1{
+    padding: 1rem!important;
+}
+.mt-5{
+    margin-top: 5rem!important;
+}
+.mt-4{
+    margin-top: 4rem!important;
+}
+.mt-3{
+    margin-top: 3rem!important;
+}
+.mt-2{
+    margin-top: 2rem!important;
+}
+.mt-1{
+    margin-top: 1rem!important;
+}
+.mb-5{
+    margin-bottom: 5rem!important;
+}
+.mb-4{
+    margin-bottom: 4rem!important;
+}
+.mb-3{
+    margin-bottom: 3rem!important;
+}
+.mb-2{
+    margin-bottom: 2rem!important;
+}
+.mb-1{
+    margin-bottom: 1rem!important;
+}
+
+ion-content{
+    background: rgb(2,0,36);
+    --background: #8BBCCC!important;
+}
+.tab-bar{
+    --background: #256D85!important;
+    padding: 10px 3px;
+}
