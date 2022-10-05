@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalstorageService } from '../services/localstorage.service';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
-  constructor() {}
-
+  isAuth;
+  constructor(private localStorage: LocalstorageService) {}
+  
+  ngOnInit(){
+    this.isAuth =  this.localStorage.auth();
+  }
 }
