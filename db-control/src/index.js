@@ -1,10 +1,19 @@
 const express = require("express")
 const app =express();
 const morgan = require("morgan");
+var cors = require('cors');
+var body_parser = require('body-parser');
+app.use(body_parser())
+
+const corsOptions ={
+    origin:'http://localhost:8100',
+}
+
+app.use(cors());
+
 
 //settings
 app.set("port", process.env.PORT || 3000);
-app.set("json spaces", 2);
 //middleware
 
 app.use(morgan("dev")) //middleware util
