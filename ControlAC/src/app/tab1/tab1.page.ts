@@ -17,7 +17,11 @@ export class Tab1Page {
     this.getUsers()
   }
   getUsers(){
-    this.userService.getAllUser().subscribe((resp)=>{
+   let data = {
+      user: "henderver",
+      pass: "pass"
+    }
+    this.userService.auth(data).subscribe((resp)=>{
     console.log(resp)
     }, 
     (error)=>{

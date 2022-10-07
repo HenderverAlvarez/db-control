@@ -27,4 +27,8 @@ export class UserServiceService {
     let url =  `${enviroment.backend}/getAllusers`
     return this.http.post(url, this.complementHeader());
   }
+  auth(data){
+    let url =  `${enviroment.backend}/auth`
+    return this.http.post(url, data, this.complementHeader());
+  }
 }
