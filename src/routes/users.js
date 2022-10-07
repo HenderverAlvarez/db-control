@@ -5,6 +5,10 @@ const router = Router();
 router.get("/", (req,res)=>{
     res.json({tittle:"hello world"})
 })
+router.post("/hello", (req,res)=>{
+    res.send("hello world")
+})
+
 /*
 router.post("/getAllusers", (req,res)=>{
     mysql.query("SELECT * FROM users", (err, rows, fields) =>{
