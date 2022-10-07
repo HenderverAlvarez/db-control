@@ -12,4 +12,16 @@ router.post("/getAllusers", (req,res)=>{
     });
 }) 
 
+router.post("/auth", (req,res)=>{
+    let user = req.body.user;
+    let pass = req.body.pass;
+    mysql.query("SELECT * FROM users", (err, rows, fields) =>{
+        if(rows.lenght > 0){
+            res.send("fallo")
+        }else{
+            res.send(rows);
+        }
+    });
+}) 
+
 module.exports = router; 
