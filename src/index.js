@@ -2,9 +2,6 @@ const express = require("express")
 const app =express();
 const morgan = require("morgan");
 var cors = require('cors');
-var body_parser = require('body-parser');
-app.use(body_parser())
-
 const corsOptions ={
     origin:'http://localhost:8100',
 }
