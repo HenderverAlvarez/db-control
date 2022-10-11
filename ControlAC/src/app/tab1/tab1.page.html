@@ -1,29 +1,40 @@
-<ion-content [fullscreen]="true" class="p-4">
-  <div class="ion-align-items-center w-100 mt-5">
+<ion-content [fullscreen]="true" class="p-4 login">
+  <div class="ion-align-items-center w-100 container">
 
-    <div class="mt-4" style="background: #256D85!important; margin: 10px; color:black!important; padding:10px; border-radius:10px">
-      <ion-label class="text-white text-center text-tittle"><h2 class="text-tittle">Iniciar Sesion</h2></ion-label>
-      <form class="mt-2" >
+    <div class="form-container">
+      <div class="icon-container">
+        <ion-icon class="w-50 text-center" name="lock-open-outline"></ion-icon>
+      </div>
+      
+      <ion-label class="text-white text-left w-50 text-tittle"><h2 class="text-tittle border-text">Autenticación</h2></ion-label>
+      <form [formGroup]="form" class="form-inner">
         <ion-grid>
-          <ion-row class="text-white ion-justify-content-center">
+          <ion-row class="text-white ion-justify-content-center ion-align-items-center">
             <ion-col size="12">
-                <ion-label><ion-icon name="people-outline"></ion-icon>Usuario</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-label><ion-icon class="mr-1" name="people-outline"></ion-icon>Usuario</ion-label>
+                <ion-input (input)="check()" formControlName="user" name="user" type="text"></ion-input>
             </ion-col>
           </ion-row>
   
           <ion-row class="text-white ion-justify-content-center">
             <ion-col size="12">
-                <ion-label>Contraseña</ion-label>
-                <ion-input type="password"></ion-input>
+                <ion-label><ion-icon class="mr-1" name="lock-closed-outline"></ion-icon> Contraseña</ion-label>
+                
+                <ion-input (input)="check()" formControlName="password" name="password" type="password"></ion-input>
             </ion-col>
           </ion-row>
   
           <ion-row class="text-white ion-justify-content-center">
             <ion-col size="auto">
-                <ion-button>ingresar</ion-button>
+                <ion-button [disabled]="!valid" (click)="onSubmit($event)">ingresar</ion-button>
             </ion-col>
           </ion-row>
+          <ion-row *ngIf="errors!=null" class="text-white ion-justify-content-center">
+            <ion-col size="auto">
+                <p>{{errors}}</p>
+            </ion-col>
+          </ion-row>
+
         </ion-grid>
       </form>
     </div>

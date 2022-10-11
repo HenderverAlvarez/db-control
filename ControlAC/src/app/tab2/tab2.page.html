@@ -1,14 +1,43 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="scan-content">
 
-<ion-content [fullscreen]="true">
-  <ion-button (click)="scan()">Escanear un codigo</ion-button>
+    <div class="icon-container mt-5">
+      <ion-icon class="icon-qrs" name="qr-code-outline"></ion-icon>
+    </div>
 
+    <div class="icon-container mb-5">
+      <ion-button class="scan-button" (click)="scan()">Escanear un codigo</ion-button>
+    </div>
 
-  <ion-label>{{code}}</ion-label>
+    <ion-button (click)="emule()">Emular escaneo</ion-button>
+
+    <div class="data-container" *ngIf="noData == false">
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="12">
+            <ion-label class="text-data">Nombre: {{data?.nombre}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="12">
+            <ion-label class="text-data"> Familia: {{data?.familia}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="12">
+            <ion-label class="text-data">Mesa: {{data?.mesa}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="12">
+            <ion-label class="text-data">Comentario: {{data?.comentarios}}</ion-label>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>
+  
+
 </ion-content>

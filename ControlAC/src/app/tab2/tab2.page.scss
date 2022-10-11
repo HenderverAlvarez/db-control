@@ -1,0 +1,29 @@
+.icon-container{
+    display: flex;
+    justify-content: space-around;
+}
+.data-container{
+    padding: 10px;
+}
+ion-content{
+    align-items: center;
+}
+.scan-content{
+    --background: #2B4865;
+}
+.scan-button{
+
+}
+.icon-qrs{
+    font-size: 50px;
+    margin: 20px;
+    padding: 20px;
+    color: #c3c3c3;
+    border: solid 1px #c3c3c3;
+    box-shadow: 2px #c3c3c3;
+    border-radius:30px;
+}
+.text-data{
+    color: #c3c3c3;
+    font-size: medium;
+}

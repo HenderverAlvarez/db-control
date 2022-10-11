@@ -25,10 +25,14 @@ export class UserServiceService {
   }
   getAllUser(){
     let url =  `${enviroment.backend}/getAllusers`
-    return this.http.post(url, this.complementHeader());
+    return this.http.get(url, this.complementHeader());
   }
   auth(data){
     let url =  `${enviroment.backend}/auth`
+    return this.http.post(url, data, this.complementHeader());
+  }
+  getByCode(data){
+    let url =  `${enviroment.backend}/getByCode`
     return this.http.post(url, data, this.complementHeader());
   }
 }

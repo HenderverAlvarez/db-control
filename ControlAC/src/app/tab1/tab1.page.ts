@@ -1,8 +1,9 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { enviroment } from 'src/environments/enviroment';
 import { UserServiceService } from '../services/user-service.service';
 import { LocalstorageService } from '../services/localstorage.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -10,22 +11,50 @@ import { LocalstorageService } from '../services/localstorage.service';
 })
 export class Tab1Page {
   env = enviroment;
-  constructor(private FormsModule: FormsModule, 
+  private form : FormGroup;
+  valid = false;
+  errors=null;
+  constructor(
     private userService: UserServiceService, 
-    private localStorage: LocalstorageService) {}
+    private localStorage: LocalstorageService,
+    private formBuilder: FormBuilder,
+    private Router: Router) {}
+
   ngOnInit(){
-    this.getUsers()
+    this.startForm();
   }
-  getUsers(){
-   let data = {
-      user: "henderver",
-      pass: "pass"
-    }
-    this.userService.auth(data).subscribe((resp)=>{
-    console.log(resp)
+  startForm(){
+    this.form = this.formBuilder.group({
+      user: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+
+  getUsers(data){
+    this.userService.auth(data).subscribe((resp:any)=>{
+      console.log(resp)
+      if(resp.length <= 0){
+        this.errors="Usuario Incorrecto"
+      }
+      else if(resp[0].password != data.password){
+        this.errors="Contraseña Incorrecta"
+      }
+      else{
+        this.errors=null;
+        this.localStorage.setAuth();
+        this.Router.navigate(["/tabs/tab2"])
+      }
     }, 
     (error)=>{
       console.log(error)
+      this.errors="Error inesperado intente nuevamente mas tarde"
     })
+  }
+  check(){
+    if(this.form.value.password != "" && this.form.value.user != ""){this.valid=true}else{this.valid=false}
+  }
+  onSubmit(event){ 
+    console.log(this.form.value)
+    this.getUsers(this.form.value)
   }
 }
