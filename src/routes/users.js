@@ -39,7 +39,7 @@ router.get("/getAllusers", (req,res)=>{
     })
 }) 
 
-router.post("/getByCode", (req,res)=>{
+router.get("/getByCode", (req,res)=>{
     let code = req.body.code;
     client.query("select * from evento.t004_invitado where codigo_qr = '"+code+"'", (err, resp) => {
         if (err) {
