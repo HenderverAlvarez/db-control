@@ -88,5 +88,36 @@ router.post("/api/user/login", (req,res)=>{
     })
 }) 
 
+router.post("/api/user/insert", (req,res)=>{
+    let identificador = req.body.identificador;
+    let nombre = req.body.nombre;
+    let apellido = req.body.apellido;
+    let correo = req.body.correo;
+    let cedula = req.body.cedula;
+    let observaciones = req.body.observaciones;
+    let asistencia = req.body.asistencia;
+    client.query("INSERT INTO evento.t004_invitado(codigo_qr, nombre, apellido, correo, cedula, observaciones, asistencia) VALUES(encode(gen_random_bytes(16)::bytea, 'hex'), '"+nombre+"', '"+apellido+"', '"+correo+"', '"+cedula+"', '"+observaciones+"', '"+asistencia+"');", (err, resp) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            res.json(resp.rows)
+        }
+    })
+}) 
+
+router.post("/api/insert/event", (req,res)=>{
+    
+    let nombre = req.body.nombre;
+    let id_supervisor = req.body.id_supervisor;
+    let cantidad_invitados = req.body.cantidad_invitados;
+    client.query("INSERT INTO evento.t002_evento (nombre, id_supervisor, fecha_creacion, cantidad_invitados) VALUES('"+nombre+"', '"+id_supervisor+"',current_timestamp, '"+cantidad_invitados+"');", (err, resp) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            res.json(resp.rows)
+        }
+    })
+}) 
+
 
 module.exports = router; 
