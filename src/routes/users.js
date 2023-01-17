@@ -67,6 +67,17 @@ router.post("/auth", (req,res)=>{
     })
 }) 
 
+router.post("/api/user/login", (req,res)=>{
+    let identificador = req.body.identificador;
+    let contraseña = req.body.contraseña;
+    client.query("with alluser as (select * from "+'"user"'+".t001_usuario tu) select CASE when alluser.identificador != '"+identificador+"' then '["+'Error'+":"+'Indicador Invalido'+", "+'cod_respuesta'+":"+'015'+"]' when pgp_sym_decrypt(alluser.contraseña ,'password') != '"+contraseña+"' then '["+'Error'+":"+'Indicador Invalido'+", "+'cod_respuesta'+":"+'015'+"]' else CONCAT_WS(' : ','¡Usuario autenticado!',alluser.identificador) end from alluser where identificador = '"+identificador+"'", (err, resp) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            res.json(resp.rows)
+        }
+    })
+}) 
 
 
 module.exports = router; 
