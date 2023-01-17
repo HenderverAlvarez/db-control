@@ -3,12 +3,16 @@ ion-input{
     margin-top: 5px!important;
     width: 100%;
     color: #fff;
-    padding-left: 10px;
+    padding-left: 30px!important;
     border-radius: 30px!important;
     color: #fff;
     font-family: 'Nunito', 'ExtraLight';
     border: 1px solid #fff;
   }
+
+ion-input:focus{
+  border: 1px solid #6F1AB6!important;
+}
 .container{
   height: 100%;
   display: flex;

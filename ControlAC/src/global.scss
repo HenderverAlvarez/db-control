@@ -111,6 +111,12 @@
 .mr-2{
     margin-right: 2rem!important;
 }
+.ml-1{
+    margin-left: 1rem!important;
+}
+.ml-2{
+    margin-left: 2rem!important;
+}
 ion-content.login{
     background-image: url("/assets/banner.jpg");
     background-size: cover;
@@ -118,7 +124,7 @@ ion-content.login{
 
 }
 .tab-bar{
-    --background: #EB1D36!important;
+    --background: #6F1AB6!important;
     opacity: .8;
     padding: 1px 3px;
 }
@@ -127,8 +133,22 @@ ion-content.login{
     padding-bottom: 5px;
     padding-left: 10px;
     padding-right: 5px;
-    border-bottom: 3px #EB1D36 solid;
+    border-bottom: 3px #6F1AB6 solid;
+}
+.border-text-blue{
+    width: 100%!important;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-bottom: 4px #4B56D2 solid;
 }
 .icon-container{
     display: hidden;
+}
+.button1{
+    --background: #4B56D2!important;
+    border-radius: 5px!important;
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+    min-width: 200px!important;
 }

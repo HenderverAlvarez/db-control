@@ -28,3 +28,9 @@ ion-content{
 .mb-0{
     margin-bottom: 0px!important;
 }
+.button-tab{
+ --background: rgba(102,112,215,1)!important;
+ height: 50px!important;
+ text-transform: capitalize;
+ font-weight: 700;
+}

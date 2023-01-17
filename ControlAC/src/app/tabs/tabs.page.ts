@@ -8,12 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-  isAuth;
+  isAuth:boolean =false;
   constructor(private localStorage: LocalstorageService, private Router: Router) {}
   
   ngOnInit(){
-    this.isAuth =  this.localStorage.checkAuth();
-
+    //this.isAuth =  this.localStorage.checkAuth();
     console.log(this.isAuth)
   }
   exit(){

@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true" class="scan-content">
+  <h5 class="text-tittle border-text-blue mt-5 mb-0 pb-1"> <ion-icon name="receipt-outline" class="ml-1 mr-1"></ion-icon> Administración y Auditoría</h5>
+
+
+  <div class="data-container mt-5">
+    <ion-grid *ngIf="showAudit == false && showConfig == false">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+          <ion-button (click)="show('audit')" class="button-tab w-100"><ion-icon name="list" class="mr-1"></ion-icon>
+            Auditoría</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center mt-2">
+        <ion-col size="12">
+          <ion-button (click)="show('admin')" class="button-tab w-100"><ion-icon name="key" class="mr-1"></ion-icon>
+            Administración del sistema</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+    <ion-grid *ngIf="showAudit == true || showConfig == true">
+      <ion-row class="ion-justify-content-center">
+        <ion-col *ngIf="showAudit == true" size="12">
+          <app-audit></app-audit>
+        </ion-col>
+
+        <ion-col *ngIf="showConfig == true" size="12">
+          <app-admin></app-admin>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12">
+          <ion-label (click)="show('none')"><ion-icon name="arrow-back-outline"></ion-icon> regresar</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+</ion-content>

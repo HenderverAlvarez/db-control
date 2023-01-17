@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { UserServiceService } from '../services/user-service.service';
+import { Navigation } from '@angular/router';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  sourceURL="https://www.pngmart.com/files/10/Qr-Code-PNG-HD.png";
   code:any;
   data: any;
   noData:boolean=true;

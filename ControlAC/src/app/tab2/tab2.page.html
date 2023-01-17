@@ -1,14 +1,16 @@
 <ion-content [fullscreen]="true" class="scan-content">
 
-    <div class="icon-container mt-5">
-      <ion-icon class="icon-qrs" name="qr-code-outline"></ion-icon>
+    <h5 class="text-tittle border-text-blue mt-5 mb-0 pb-1 d-flex align-items-center"> <ion-icon name="scan-outline" class="ml-1 mr-1"></ion-icon> Escaner</h5>
+
+    <div class="icon-container mt-2">
+      <ion-img class="icon-qrs" [src]="sourceURL"></ion-img>
     </div>
 
     <div class="icon-container mb-5">
-      <ion-button class="scan-button" (click)="scan()">Escanear un codigo</ion-button>
-    </div>
+      <ion-button class="scan-button button-scan" (click)="scan()">Escanear un codigo</ion-button>
+    </div> 
 
-    <ion-button (click)="emule()">Emular escaneo</ion-button>
+    <!--ion-button (click)="emule()">Emular escaneo</ion-button-->
 
     <div class="data-container" *ngIf="noData == false">
       <ion-grid>
@@ -17,7 +19,7 @@
             <ion-label class="text-data">Nombre: {{data?.nombre}}</ion-label>
           </ion-col>
         </ion-row>
-
+ 
         <ion-row class="ion-justify-content-center">
           <ion-col size="12">
             <ion-label class="text-data"> Familia: {{data?.familia}}</ion-label>

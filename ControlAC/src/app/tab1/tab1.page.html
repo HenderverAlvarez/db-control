@@ -6,7 +6,7 @@
         <ion-icon class="w-50 text-center" name="lock-open-outline"></ion-icon>
       </div>
       
-      <ion-label class="text-white text-left w-50 text-tittle"><h2 class="text-tittle border-text">Autenticación</h2></ion-label>
+      <ion-label class="text-white text-left w-50 text-tittle"><h2 class="text-tittle border-text">Inicio de Sesión</h2></ion-label>
       <form [formGroup]="form" class="form-inner">
         <ion-grid>
           <ion-row class="text-white ion-justify-content-center ion-align-items-center">
@@ -16,7 +16,7 @@
             </ion-col>
           </ion-row>
   
-          <ion-row class="text-white ion-justify-content-center">
+          <ion-row class="text-white ion-justify-content-center mt-1">
             <ion-col size="12">
                 <ion-label><ion-icon class="mr-1" name="lock-closed-outline"></ion-icon> Contraseña</ion-label>
                 
@@ -24,14 +24,14 @@
             </ion-col>
           </ion-row>
   
-          <ion-row class="text-white ion-justify-content-center">
+          <ion-row class="text-white ion-justify-content-center mt-2">
             <ion-col size="auto">
-                <ion-button [disabled]="!valid" (click)="onSubmit($event)">ingresar</ion-button>
+                <ion-button [disabled]="!valid" class="button1  w-100" (click)="onSubmit($event)">ingresar</ion-button>
             </ion-col>
           </ion-row>
           <ion-row *ngIf="errors!=null" class="text-white ion-justify-content-center">
             <ion-col size="auto">
-                <p>{{errors}}</p>
+                <p class="text-center">{{errors}}</p>
             </ion-col>
           </ion-row>
 
