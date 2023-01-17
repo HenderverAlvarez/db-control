@@ -3,7 +3,10 @@ const app =express();
 const morgan = require("morgan");
 var cors = require('cors');
 const corsOptions ={
-    origin:'http://localhost:8100',
+    origin:'http://localhost:3000',
+    //origin: ['http://10.5.0.1:5000'], // cambiar
+    methods: ['GET', 'POST'],
+    credentials: true,
 }
 
 app.use(cors());
