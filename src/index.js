@@ -1,13 +1,13 @@
 const express = require("express")
 const app =express();
 const morgan = require("morgan");
-/*var cors = require('cors');
+var cors = require('cors');
 const corsOptions ={
     origin:'http://localhost:3000',
     //origin: ['http://10.5.0.1:5000'], // cambiar
     methods: ['GET', 'POST'],
     credentials: true,
-}*/
+}
 
 // Configurar cabeceras y cors
 app.use((req, res, next) => {
@@ -18,8 +18,7 @@ app.use((req, res, next) => {
     next();
 });
 
-//app.use(cors());
-
+app.use(cors());
 
 //settings
 app.set("port", process.env.PORT || 3000);
