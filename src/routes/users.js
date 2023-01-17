@@ -50,6 +50,15 @@ router.get("/getByCode", (req,res)=>{
     })
 }) 
 
+router.get("/auditoria", (req,res)=>{
+    client.query("select * from evento.t005_auditoria", (err, resp) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            res.json(resp.rows)
+        }
+    })
+}) 
 
 router.post("/auth", (req,res)=>{
     let nombre = req.body.nombre;
