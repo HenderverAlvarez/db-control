@@ -21,7 +21,7 @@ client.connect(err => {
   }
 })
 
-router.get("/", (req,res)=>{
+router.post("/", (req,res)=>{
     res.json({tittle:"hello world"})
 })
 router.post("/hello", (req,res)=>{
@@ -29,7 +29,7 @@ router.post("/hello", (req,res)=>{
 })
 
 
-router.get("/getAllusers", (req,res)=>{
+router.post("/getAllusers", (req,res)=>{
     client.query('SELECT * FROM user.t001_usuario', (err, resp) => {
         if (err) {
             console.log(err.stack)
@@ -39,7 +39,7 @@ router.get("/getAllusers", (req,res)=>{
     })
 }) 
 
-router.get("/getByCode", (req,res)=>{
+router.post("/getByCode", (req,res)=>{
     let code = req.body.code;
     client.query("select * from evento.t004_invitado where codigo_qr = '"+code+"'", (err, resp) => {
         if (err) {
@@ -50,7 +50,7 @@ router.get("/getByCode", (req,res)=>{
     })
 }) 
 
-router.get("/auditoria", (req,res)=>{
+router.post("/auditoria", (req,res)=>{
     client.query("select * from evento.t005_auditoria", (err, resp) => {
         if (err) {
             console.log(err.stack)
