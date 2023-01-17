@@ -5,21 +5,21 @@ var cors = require('cors');
 
 const corsOptions ={
     //origin:'http://localhost:3000',
-    origin: ['https://controldb.onrender.com','controldb.onrender.com'], // cambiar
-    methods: ['GET, POST, OPTIONS, PUT, DELETE'],
+    //origin: ['https://controldb.onrender.com','controldb.onrender.com'], // cambiar
+    origin:"*",
+    methods: ['OPTIONS, GET, POST, PUT, DELETE'],
     credentials: true,
 }
 
+app.use(cors());
 // Configurar cabeceras y cors
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', ', OPTIONS,GET, POST, PUT, DELETE');
-    res.header('Allow', 'OPTIONS, GET, POST,PUT, DELETE');
+    res.header('Access-Control-Allow-Methods', 'OPTIONS,POST,GET, PUT, DELETE');
+    res.header('Allow', 'OPTIONS,POST,GET,PUT, DELETE');
     next();
 });
-
-app.use(cors());
 
 //settings
 app.set("port", process.env.PORT || 3000);
